@@ -1,0 +1,1 @@
+ALTER TABLE `users` ADD `webhuddle_script_ids` TEXT NULL DEFAULT NULL 

@@ -1,0 +1,31 @@
+{foreach choices}
+<div style="display: flex;
+	justify-content: space-between;
+	align-content: stretch;
+    flex-direction: row;
+    margin-bottom: 0.5em;">
+		<div style="flex: 1 0 60%; max-width: 240px; word-wrap: break-word; padding-right: 0.5em; ">
+			{descr}
+		</div>
+		<div class="progress" style="flex: 3 0 38%;">
+			<div class="bar" data-value="{percentage * 100}" style="width: 0%;">
+				{votes} ({percentage * 100}%)
+			</div>
+		</div>
+</div>
+{/foreach}
+<!-- TODO: implementa barre di diversi colori -->
+<script>
+"use strict";
+// Anima le barre
+$(".progress .bar").each(function(){
+	var value = $(this).attr('data-value');
+	if (value){
+		$(this).animate({width: value + "%"}, 700);
+	}
+});
+</script>
+
+
+
+			

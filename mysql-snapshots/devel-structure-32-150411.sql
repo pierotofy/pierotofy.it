@@ -1,0 +1,1 @@
+         ALTER TABLE `notifications` CHANGE `text` `text` TINYTEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL 

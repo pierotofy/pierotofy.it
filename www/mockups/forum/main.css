@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    background: none;
+    position: relative;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+body {
+    background: white;
+}
+div {word-wrap: break-word;}
+
+
+#mobile-box {border: 1px solid; width: 320px; height: 480px; overflow: auto;}
+
+header.main {
+	background: #00B8FF;
+	box-shadow: 0 3px #00A7EE;
+	height: 45px;
+	padding: 2px 5px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+	.pt-logo {
+		width: 44px;
+		height: 40px;
+	}
+
+section.main {padding: 0 10px;}
+	
+.title, .forum-section {color: #00A7EE;}
+.title {font-size: 45px;}
+.forum-section {font-size: 25px; text-align: right;}
+
+.forum-topic {
+    text-align: center;
+    color: white;
+    background: #00B8FF;
+	box-shadow: 0 4px #00A7EE;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: table;
+	table-layout: fixed;
+    width: 250px; 
+    height: 250px;
+    margin-bottom: 15px;
+    
+}
+    .forum-topic > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 15px;
+    }
+        .forum-topic h1 {font-size: 38px; display: block; line-height: 37px; margin-bottom: 10px; text-shadow: 2px 3px #00a7ee;}
+        .topic-description {display: block; margin-bottom: 10px;}
+        .topic-counters {font-weight: bold;}
+            .topic-counter {width: 50%; float: left; font-size: 110%; text-shadow: 1px 2px #00a7ee;}
+                .topic-counter span {display: block; font-size: 70%;}

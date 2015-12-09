@@ -1,0 +1,69 @@
+<div id="forum-poll-form">
+	{foreach choices}
+		<input type="radio" id="poll-option-{id}" name="poll-options" value="{id}" />
+		<label for="poll-option-{id}">{descr}</label><br/>
+	{/foreach}
+	<br/>
+	<div class="right">
+		<div id="poll-buttons">
+			<input type="button" class="disabled" id="btn-poll-vote" value="Vota" />
+		</div>
+		<img id="poll-ajax-load" src="/images/ajax-loading.gif" alt="Loading" class="ajax-load" />
+	</div>
+</div>
+
+<script>
+"use strict";
+$(function(){
+	$("input[name='poll-options']").click(function(){
+		$("#btn-poll-vote").removeClass("disabled");
+	});
+
+	$("#btn-poll-vote").click(function(){
+		if ($(this).hasClass("disabled")) return;
+
+		if (!CurrentUser.isLogged){
+			// Mostra il menu di login
+			setTimeout(function(){
+				$("#login-panel").show();
+			}, 0);
+			return;
+		}
+
+		function showError(error){
+			alert(error); // TODO: dialog migliore
+		}
+
+		var $ajax_load = $("#poll-ajax-load");
+		var $control_buttons = $("#poll-buttons");
+
+		$ajax_load.show();
+		$control_buttons.hide();
+
+		$.ajax({
+			type: "POST",
+			url: "/restful/forum/poll_vote.php",
+			data: {
+				'topic_id' : {topic_id},
+				'vote' : $("input[name=poll-options]:checked").val()
+			},
+			timeout: 15000,
+			dataType: 'json'
+		}).done(function(data) {
+			if (data.success){
+				var $form = $("#forum-poll-form");
+				$form.empty();
+				$form.append(data.results_html);
+			}else{
+				showError(data.error);
+			}
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			$control_buttons.show();
+			showError(textStatus);
+		}).always(function(){
+			$ajax_load.hide();
+			$control_buttons.show();
+		});
+	});
+});
+</script>

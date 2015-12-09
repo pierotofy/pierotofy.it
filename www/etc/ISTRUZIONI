@@ -1,0 +1,6 @@
+Istruzioni per configuarare il sito:
+====================================
+
+1. Crea una copia della directory "config.default" e rinonima la copia "config".
+2. Cambia i files all'interno di "config" con i parametri del tuo ambiente.
+3. Buon divertimento!

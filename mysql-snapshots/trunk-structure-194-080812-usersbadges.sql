@@ -1,0 +1,1 @@
+ALTER TABLE  `users` ADD  `forum_badges_count` INT NOT NULL DEFAULT  '0'

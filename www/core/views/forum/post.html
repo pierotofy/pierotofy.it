@@ -1,0 +1,37 @@
+<div class="post" id="forum-post-{id}">
+	<div class="content">
+		{if locked}
+		<div class="center">
+			<div class="alert inline">
+				<span class="icon icon-lock"></span>
+				<span class="message">Questo topic e' stato chiuso dal moderatore.</span>
+			</div>
+		</div>
+		{/if}
+		<div class="date"><span class="small">{formatted_post_date}</span></div>
+
+		<a href="{view_profile_url}"><img src="{avatar_url}" class="avatar small"></a> <a href="{view_profile_url}">{user}</a>
+		<div class="message">
+			{parsed_message}
+		</div>
+		{if edited}
+			<div class="last-modified">
+				<span class="verysmall"><i>Ultima modifica effettuata da <b>{edit_user}</b> {edit_date}</i></span>
+			</div>
+		{/if}
+		{if parsed_signature}
+		<div class="signature verysmall">
+			{parsed_signature}
+		</div>
+		{/if}
+	</div>
+	<div class="user-actions">
+		<img style="margin-right: 8px;" id="post-{id}-edit-ajax-load" src="/images/ajax-loading.gif" alt="Loading" class="ajax-load" />
+{if can_edit}
+		<input onclick="javascript:Forum.Edit({id});" type="button" value="Modifica"/>
+{/if}
+		<input type="button" class="btn-quote" value="Quota" onclick="javascript:Forum.Quote({id});"/>
+	</div>
+
+	<div class="clear"></div>
+</div>

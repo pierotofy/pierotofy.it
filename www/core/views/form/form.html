@@ -1,0 +1,62 @@
+{* Form Template *}
+
+<form id="{form_id}" 
+{if !visible } style="display: none;" {/if}
+data-post-url="{post_url}"
+>
+
+{*
+    Icona X per chiudere
+*}
+
+{if closeable}    
+    <div class="formitem close">
+        <a class="icon icon-cross_mark" href="javascript:FormBuilder.Close('{form_id}');"></a>
+    </div>
+{/if}
+
+{*
+   Campi
+*}
+
+{foreach fields}
+<div class="formitem
+{if label}labeled{/if}
+">
+    {if type = 'textinput'}{include form/textinput.html}{/if}
+    {if type = 'textarea'}{include form/textarea.html}{/if}
+    {if type = 'checkbox'}{include form/checkbox.html}{/if}
+    {if type = 'telinput'}{include form/telinput.html}{/if}
+    {if type = 'textpassword'}{include form/textpassword.html}{/if}
+    {if type = 'hidden'}{include form/hidden.html}{/if}    
+</div>
+{/foreach}
+
+{* Auto validate *}
+{if serverside_autovalidate}
+    <input type="hidden" name="{av_token_id}" id="form-{form_id}-field-{av_token_id}" value="{av_token}" data-formfield="true" data-reset-value="{av_token}" />
+{/if}
+
+{*
+    Pannello in basso con i comandi per inviare
+*}
+
+<div id="{form_id}-bottom-panel" class="formitem last
+{if control_buttons_count + widgets_count > 1 }multiple{/if}
+">
+    <img id="{form_id}-submit-ajax-load" src="/images/ajax-loading.gif" alt="Loading" class="ajax-load right" />
+
+{* Bottoni di controllo *}
+
+{foreach control_buttons}
+    <input class="right control-button" type="button" value="{label}" onclick="{action}"/>
+{/foreach}
+
+{foreach widgets}
+    {html}
+{/foreach}
+</div>
+<div id="{form_id}-warning-msg" class="formitem alert warning" style="box-sizing: border-box; display: none;">
+</div>
+
+</form>

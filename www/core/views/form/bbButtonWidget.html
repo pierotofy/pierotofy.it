@@ -1,0 +1,20 @@
+<div class="absolute-container">
+    <ul id="bbcode-list-{widget_id}" class="drop-down-list up">
+{if code}
+        <li data-hide="bbcode-list-{widget_id}" onclick="javascript:Text.AppendTo('{element_id}', '\n[code]\n\n[/code]', 8);">Code</li>
+{/if}
+{if quote}
+        <li data-hide="bbcode-list-{widget_id}" onclick="javascript:Text.AppendTo('{element_id}', '\n[quote]\n\n[/quote]', 9);">Quote</li>
+{/if}
+{if g}
+        <li data-hide="bbcode-list-{widget_id}" onclick="javascript:Text.AppendTo('{element_id}', '[b][/b]', 4);"><span style="font-weight: bold;">G</span></li>
+{/if}
+{if c}
+        <li data-hide="bbcode-list-{widget_id}" onclick="javascript:Text.AppendTo('{element_id}', '[i][/i]', 4);"><span style="text-style: italic;">C</span></li>
+{/if}
+{if s}
+        <li data-hide="bbcode-list-{widget_id}" onclick="javascript:Text.AppendTo('{element_id}', '[u][/u]', 4);"><span style="text-decoration: underline;">S</span></li>
+{/if}
+	</ul>
+	<input type="button" id="btn-insert-bbcode-{widget_id}" value="[ bb ]" data-toggle="bbcode-list-{widget_id}" />
+</div>

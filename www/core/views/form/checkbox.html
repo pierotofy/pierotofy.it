@@ -1,0 +1,8 @@
+{if label}<label for="form-{form_id}-field-{id}">{label} </label>{/if}
+<input
+	type="checkbox" 
+	{if value=true}
+		checked
+	{/if}
+	{formbuilder_attrs}
+/>

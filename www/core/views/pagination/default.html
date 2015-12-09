@@ -1,0 +1,8 @@
+<div class="pagination" style="text-align: center;"> 
+{foreach pages}
+<a href="{link}" class="btn multi-line pagination-link-{page}">
+{if current_page = page }<b>{page}</b>{/if}
+{if current_page != page }{page}{/if}
+</a>
+{/foreach}
+</div>

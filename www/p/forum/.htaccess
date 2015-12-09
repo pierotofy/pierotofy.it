@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteRule ([0-9]+)/([0-9]+)-([^/]+)_p([0-9]+)/ viewtopic.php?forum_id=$1&id=$2&p=$4 [L]
+RewriteRule ([0-9]+)/([0-9]+)-([^/]+)/ viewtopic.php?forum_id=$1&id=$2&p=1 [L]
+RewriteRule ([0-9]+)-([0-9]+)/ viewforum.php?id=$1&p=$2 [L]
+RewriteRule ([0-9]+)/ viewforum.php?id=$1&p=1 [L]
